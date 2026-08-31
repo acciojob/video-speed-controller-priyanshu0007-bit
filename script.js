@@ -9,7 +9,16 @@ inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
 
-// NEW CODE
+
+const progress = document.querySelector('.progress');
+const progressFilled = document.querySelector('.progress__filled');
+
+function updateProgress() {
+  const percent = (video.currentTime / video.duration) * 100;
+  progressFilled.style.width = percent + '%';
+}
+
+video.addEventListener('timeupdate', updateProgress);
 
 const video = document.querySelector('.flex');
 const toggle = document.querySelector('.toggle');
